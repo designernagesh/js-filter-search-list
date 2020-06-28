@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Filter/ Search List</title>  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Extra+Condensed:wght@700;800;900&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div style="height: 100vh" class="d-flex mt-4 justify-content-center align-items-start">
+  <div class="container">
+    <h1 class="display-1 text-danger my-4">Filter/ Search List</h1>
+
+    <input type="text" onkeyup="filterList()" id="searchInput" class="form-control form-control-lg mb-4" placeholder="Search...">
+
+    <ul id="list">
+      <li><a href=""> About JavaScript data types, built-in methods, and variables.</a></li>
+      <li><a href=""> Use of if, else if, else, switch, and ternary syntax to control the flow of a program in JavaScript.</a></li>
+      <li><a href=""> Function syntax, passing data to functions, the return keyword, ES6 arrow functions, and concise body syntax.</a></li>
+      <li><a href=""> Global and block level scope in JavaScript.</a></li>
+      <li><a href=""> Arrays, a data structure in JavaScript used to store lists of data.</a></li>
+      <li><a href=""> Use of for and while loops to execute blocks of code multiple times.</a></li>
+      <li><a href=""> Use of iterator methods to simplify the process of looping over arrays.</a></li>
+      <li><a href=""> Javascript ES6 object syntax to model real-world items.</a></li>
+      <li><a href=""> Create classes and use inheritance to minimize redundancy in your code.</a></li>
+      <li><a href=""> Browser compatibility and JavaScript ES6+ to ES5 transpilation.</a></li>
+      <li><a href=""> Use of modules, a way to define reusable logic in the programs.</a></li>
+      <li><a href=""> Write asynchronous JavaScript with the Promises Syntax.</a></li>
+      <li><a href=""> Asynchronous programming and leverage promises in JavaScript.</a></li>      
+    </ul>
+    <div id="noData">No Data Available</div>
+  </div>
+  <script>    
+    let nodata = document.getElementById("noData"); 
+    nodata.style.display = "none";
+
+    function filterList(){
+      let searchInput = document.getElementById("searchInput");
+      let searchInputValue = searchInput.value.toUpperCase();
+
+      let list = document.getElementById("list");
+
+      let li = list.getElementsByTagName("li");
+
+      for(var i = 0; i<li.length; i++){
+        let a = li[i].getElementsByTagName("a")[0];
+         
+        if(a.innerHTML.toUpperCase().indexOf(searchInputValue) > -1){
+          li[i].style.display = "block";          
+        }else {
+          li[i].style.display = "none";
+        }
+        /* if(a.innerHTML.toUpperCase().indexOf(searchInput.value.toUpperCase()) == -1){
+          nodata.style.display = "block"
+        } */
+      }      
+    }
+  </script>
+</body>
+</html>
